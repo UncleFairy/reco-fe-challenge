@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.active-link {
+    border-left: 3px solid greenyellow;
+}

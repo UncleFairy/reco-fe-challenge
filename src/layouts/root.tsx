@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router';
+import { Link, NavLink, Outlet } from 'react-router';
 import { SIDEBAR_ITEMS } from '../consts';
 
 const RootLayout = () => {
@@ -9,11 +9,15 @@ const RootLayout = () => {
         <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-4">
           <li>
-            <Link to="/">RECO</Link>
+            <Link to="/" className="text-[64px] font-bold leading-none text-lime-500">
+              reco
+            </Link>
           </li>
           {SIDEBAR_ITEMS.map((item) => (
             <li key={item.label}>
-              <Link to={item.path}>{item.label}</Link>
+              <NavLink to={item.path} className={({ isActive }) => (isActive ? 'active-link' : '')}>
+                {item.label}
+              </NavLink>
             </li>
           ))}
         </ul>
