@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router';
-import Root from './layouts/root';
+import RootLayout from './layouts/root';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    Component: Root,
+    Component: RootLayout,
     children: [
       { index: true, Component: () => 'Apps Discovery' },
       { path: '/inventory', Component: () => 'Inventory' },

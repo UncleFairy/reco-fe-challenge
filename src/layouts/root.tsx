@@ -1,7 +1,30 @@
-import { Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
+import { SIDEBAR_ITEMS } from '../consts';
 
-const Root = () => {
-  return <Outlet />;
+const RootLayout = () => {
+  return (
+    <div className="drawer drawer-open">
+      <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-side">
+        <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
+        <ul className="menu bg-base-200 min-h-full w-80 p-4">
+          <li>
+            <Link to="/">RECO</Link>
+          </li>
+          {SIDEBAR_ITEMS.map((item) => (
+            <li key={item.label}>
+              <Link to={item.path}>{item.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="drawer-content">
+        <div className="p-4">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default Root;
+export default RootLayout;
